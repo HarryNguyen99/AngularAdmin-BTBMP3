@@ -17,7 +17,8 @@ import { AppComponent } from './app.component';
 import { DefaultLayoutComponent } from './containers';
 
 const APP_CONTAINERS = [
-  DefaultLayoutComponent
+  DefaultLayoutComponent,
+  UserlistComponent
 ];
 
 import {
@@ -30,6 +31,12 @@ import {
 
 // Import routing module
 import { AppRoutingModule } from './app.routing';
+import { UserlistComponent } from './views/userlist/userlist.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { LoginComponent } from './views/login/login.component';
+import {JwtInterceptor} from "./interceptor/jwt.interceptor";
+import { LogoutComponent } from './views/logout/logout.component';
 
 
 @NgModule({
@@ -42,16 +49,27 @@ import { AppRoutingModule } from './app.routing';
     AppFooterModule,
     AppHeaderModule,
     AppSidebarModule,
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   declarations: [
     AppComponent,
     ...APP_CONTAINERS,
+    UserlistComponent,
+    LoginComponent,
+    LogoutComponent,
   ],
   providers: [{
     provide: LocationStrategy,
     useClass: HashLocationStrategy
-  }],
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    }],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

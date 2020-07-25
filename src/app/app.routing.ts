@@ -3,11 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Import Containers
 import { DefaultLayoutComponent } from './containers';
+import {UserlistComponent} from "./views/userlist/userlist.component";
+import {LoginComponent} from "./views/login/login.component";
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {
@@ -20,10 +22,20 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule)
+      },
+      {
+        path: 'user-list',
+        redirectTo: 'login',
       }
     ]
   },
-  { path: '**', component: DefaultLayoutComponent }
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  { path: '**',
+    redirectTo: 'login'
+  }
 ];
 
 @NgModule({
