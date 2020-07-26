@@ -1,6 +1,6 @@
 <table class="table table-hover table-striped table-dark rounded table-borderless">
   <thead>
-  <button type="button" class="btn btn-danger" (click)="onSubmitGetAll()">Get All</button>
+<!--  <button type="button" class="btn btn-danger" (click)="onSubmitGetAll()">Get All</button>-->
   <tr>
     <th scope="col">#</th>
     <th scope="col">username</th>
@@ -21,11 +21,9 @@
     <td>{{ user.birthday }}</td>
     <td>{{ user.phone_number }}</td>
     <td>
-      <!--<button type="button" class="btn btn-danger" (click)="onSubmitBlock(user.id )  ">Block </button>-->
+      <button type="button" class="btn btn-danger" (click)="onSubmitBlock(user.id )">Block </button>
       <button type="button" class="btn btn-danger" (click)="onSubmitDelete(user.id)">Delete</button>
     </td>
   </tr>
-
-
   </tbody>
 </table>
