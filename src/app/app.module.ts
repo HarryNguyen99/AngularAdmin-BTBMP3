@@ -1,20 +1,20 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
-import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import {PerfectScrollbarModule} from 'ngx-perfect-scrollbar';
+import {PERFECT_SCROLLBAR_CONFIG} from 'ngx-perfect-scrollbar';
+import {PerfectScrollbarConfigInterface} from 'ngx-perfect-scrollbar';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 
 // Import containers
-import { DefaultLayoutComponent } from './containers';
+import {DefaultLayoutComponent} from './containers';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent,
@@ -30,13 +30,14 @@ import {
 } from '@coreui/angular';
 
 // Import routing module
-import { AppRoutingModule } from './app.routing';
-import { UserlistComponent } from './views/userlist/userlist.component';
+import {AppRoutingModule} from './app.routing';
+import {UserlistComponent} from './views/userlist/userlist.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { LoginComponent } from './views/login/login.component';
+import {LoginComponent} from './views/login/login.component';
 import {JwtInterceptor} from "./interceptor/jwt.interceptor";
-import { LogoutComponent } from './views/logout/logout.component';
+import {LogoutComponent} from './views/logout/logout.component';
+import {AuthServiceService} from "./services/auth-service.service";
 
 
 @NgModule({
@@ -61,15 +62,19 @@ import { LogoutComponent } from './views/logout/logout.component';
     LoginComponent,
     LogoutComponent,
   ],
-  providers: [{
-    provide: LocationStrategy,
-    useClass: HashLocationStrategy
+  providers: [
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
     },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
       multi: true
-    }],
-  bootstrap: [ AppComponent ]
+    },
+    AuthServiceService
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

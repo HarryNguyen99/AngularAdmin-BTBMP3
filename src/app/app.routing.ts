@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DefaultLayoutComponent } from './containers';
 import {UserlistComponent} from "./views/userlist/userlist.component";
 import {LoginComponent} from "./views/login/login.component";
+import {AuthServiceService} from "./services/auth-service.service";
 
 export const routes: Routes = [
   {
@@ -14,6 +15,7 @@ export const routes: Routes = [
   },
   {
     path: '',
+    canActivateChild: [AuthServiceService],
     component: DefaultLayoutComponent,
     data: {
       title: 'Home'
@@ -25,7 +27,8 @@ export const routes: Routes = [
       },
       {
         path: 'user-list',
-        redirectTo: 'login',
+        canActivate: [AuthServiceService],
+        component: UserlistComponent
       }
     ]
   },

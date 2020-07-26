@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard.component';
+import {AuthServiceService} from "../../services/auth-service.service";
 
 const routes: Routes = [
   {
