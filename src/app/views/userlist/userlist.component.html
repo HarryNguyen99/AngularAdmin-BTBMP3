@@ -8,19 +8,22 @@
     <th scope="col">Email</th>
     <th scope="col">Birthday</th>
     <th scope="col">Phone Number</th>
-    <th scope="col">Action</th>
+    <th scopadasdse="col">Action</th>
   </tr>
   </thead>
 
   <tbody>
   <tr  *ngFor="let user of userList, index as i">
-    <th scope="row">i+1</th>
+    <th scope="row">{{ user.id }}</th>
     <td>{{ user.username }}</td>
     <td>{{ user.full_name }}</td>
     <td>{{ user.email }}</td>
     <td>{{ user.birthday }}</td>
     <td>{{ user.phone_number }}</td>
-    <td></td>
+    <td>
+      <!--<button type="button" class="btn btn-danger" (click)="onSubmitBlock(user.id )  ">Block </button>-->
+      <button type="button" class="btn btn-danger" (click)="onSubmitDelete(user.id)">Delete</button>
+    </td>
   </tr>
 
 

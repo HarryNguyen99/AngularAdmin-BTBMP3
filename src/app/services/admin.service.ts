@@ -10,8 +10,8 @@ import {UserLogin} from "../interface/userLogin";
   providedIn: 'root'
 })
 export class AdminService {
-  private adminUrl = 'http://172.20.10.3:8080/api/admin/crud-user/';
-  private loginUrl = 'http://172.20.10.3:8080/api/auth/admin/signin';
+  private adminUrl = 'http://localhost:8080/api/admin/crud-user';
+  private loginUrl = 'http://localhost:8080/api/auth/admin/signin';
 
   constructor(private httpClient: HttpClient) {
   }
@@ -22,6 +22,14 @@ export class AdminService {
 
   getAll(): Observable<any> {
     console.log("alala");
-    return this.httpClient.get(`http://172.20.10.3:8080/api/admin/crud-user/users`);
+    return this.httpClient.get(`http://localhost:8080/api/admin/crud-user/users`);
+  }
+
+  deleteUser(userId: number): Observable<any> {
+    return this.httpClient.delete(`${this.adminUrl}/users/${userId}`);
+  }
+
+  blockUser(userId: number): Observable<any> {
+    return this.httpClient.put( `${this.adminUrl}/users/${userId}`, userId);
   }
 }
