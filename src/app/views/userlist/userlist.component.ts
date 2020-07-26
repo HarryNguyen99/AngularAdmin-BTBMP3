@@ -12,45 +12,43 @@ export class UserlistComponent implements OnInit {
 
   constructor(private adminService: AdminService) { }
 
-  private userList: Observable<User[]>;
+  userList: Observable<User[]>;
 
-  ngOnInit(): void {
-    this.adminService.getAll().subscribe(
+  ngOnInit() {
+   /* this.adminService.getAll().subscribe(
       result => {
         console.log("ala");
         this.userList = result;
       }, error => {
         alert("Cannot get user list!");
       }
-    )
-
+    )*/
+    this.reloadData();
   }
 
-  // onSubmitGetAll() {
-  //   this.adminService.getAll().subscribe(
-  //     (result) => {
-  //       console.log("ala");
-  //       this.userList = result;
-  //     }, error => {
-  //       alert("Cannot get user list!");
-  //     }
-  //   )
-  // }
-
-  // ngOnInit() {
-  // }
-
-  onSubmitDelete(userId: number) {
+  onSubmitDelete(userId: number): void {
     this.adminService.deleteUser(userId).subscribe(
-/*     result => { console.log()},
-      error => console.log(error)*/
+    result => {
+      /*console.log(result);*/
+      this.reloadData();
+    },
+      error => console.log(error)
     );
   }
 
-/*  onSubmitBlock(userId: number) {
+  onSubmitBlock(userId: number) {
     this.adminService.blockUser(userId).subscribe(
       result => {},
       error => console.log(error)
     );
-  }*/
+  }
+
+  reloadData(): void {
+    this.adminService.getAll().subscribe(
+      result => {
+        console.log("testing");
+        this.userList = result;
+      }
+    );
+  }
 }

@@ -10,7 +10,7 @@ import {UserLogin} from "../interface/userLogin";
   providedIn: 'root'
 })
 export class AdminService {
-  private adminUrl = 'http://localhost:8080/api/admin/crud-user';
+  private adminUrl = 'http://localhost:8080/api/admin/crud-user/users';
   private loginUrl = 'http://localhost:8080/api/auth/admin/signin';
 
   constructor(private httpClient: HttpClient) {
@@ -26,10 +26,10 @@ export class AdminService {
   }
 
   deleteUser(userId: number): Observable<any> {
-    return this.httpClient.delete(`${this.adminUrl}/users/${userId}`);
+    return this.httpClient.delete(`${this.adminUrl}/${userId}`);
   }
 
   blockUser(userId: number): Observable<any> {
-    return this.httpClient.put( `${this.adminUrl}/users/${userId}`, userId);
+    return this.httpClient.put( `${this.adminUrl}/${userId}`, userId);
   }
 }
