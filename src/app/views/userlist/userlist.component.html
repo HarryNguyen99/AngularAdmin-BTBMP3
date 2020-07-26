@@ -1,5 +1,6 @@
 <table class="table table-hover table-striped table-dark rounded table-borderless">
   <thead>
+  <button type="button" class="btn btn-danger" (click)="onSubmitGetAll()">Get All</button>
   <tr>
     <th scope="col">#</th>
     <th scope="col">username</th>
@@ -15,10 +16,10 @@
   <tr  *ngFor="let user of userList, index as i">
     <th scope="row">i+1</th>
     <td>{{ user.username }}</td>
-    <td>{{ user.fullName }}</td>
+    <td>{{ user.full_name }}</td>
     <td>{{ user.email }}</td>
     <td>{{ user.birthday }}</td>
-    <td>{{ user.phoneNumber }}</td>
+    <td>{{ user.phone_number }}</td>
     <td></td>
   </tr>
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AdminService} from "../../services/admin.service";
 import {User} from "../../interface/user";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-userlist',
@@ -10,17 +11,30 @@ export class UserlistComponent implements OnInit {
 
   constructor(private adminService: AdminService) { }
 
-  userList: User[];
+  private userList: Observable<User[]>;
 
   ngOnInit(): void {
     this.adminService.getAll().subscribe(
-      (result) => {
+      result => {
+        console.log("ala");
         this.userList = result;
       }, error => {
         alert("Cannot get user list!");
       }
     )
+
   }
+
+  // onSubmitGetAll() {
+  //   this.adminService.getAll().subscribe(
+  //     (result) => {
+  //       console.log("ala");
+  //       this.userList = result;
+  //     }, error => {
+  //       alert("Cannot get user list!");
+  //     }
+  //   )
+  // }
 
   // ngOnInit() {
   // }
