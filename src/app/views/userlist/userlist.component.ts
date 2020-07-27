@@ -16,7 +16,7 @@ export class UserlistComponent implements OnInit {
   ngOnInit(): void {
     this.adminService.getAll().subscribe(
       result => {
-        console.log("ala");
+        console.log("userlist ts run");
         this.userList = result;
       }, error => {
         alert("Cannot get user list!");
