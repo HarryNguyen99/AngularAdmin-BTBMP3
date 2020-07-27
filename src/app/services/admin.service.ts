@@ -23,8 +23,6 @@ export class AdminService {
   getAll(): Observable<any> {
     console.log("admin service run");
     return this.httpClient.get(`http://localhost:8080/api/admin/crud-user/users`);
-    console.log("alala");
-    return this.httpClient.get(`http://localhost:8080/api/admin/crud-user/users`);
   }
 
   deleteUser(userId: number): Observable<any> {
