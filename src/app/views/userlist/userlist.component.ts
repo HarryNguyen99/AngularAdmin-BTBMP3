@@ -13,6 +13,7 @@ export class UserlistComponent implements OnInit {
   constructor(private adminService: AdminService) { }
 
   userList: Observable<User[]>;
+  isBlock : boolean = false;
 
   ngOnInit() {
    /* this.adminService.getAll().subscribe(
@@ -38,7 +39,9 @@ export class UserlistComponent implements OnInit {
 
   onSubmitBlock(userId: number) {
     this.adminService.blockUser(userId).subscribe(
-      result => {},
+      result => {
+        this.isBlock = true;
+      },
       error => console.log(error)
     );
   }
