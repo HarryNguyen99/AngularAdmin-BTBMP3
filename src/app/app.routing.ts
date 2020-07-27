@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Import Containers
 import { DefaultLayoutComponent } from './containers';
+// @ts-ignore
 import {UserlistComponent} from "./views/userlist/userlist.component";
 import {LoginComponent} from "./views/login/login.component";
 import {AuthServiceService} from "./services/auth-service.service";

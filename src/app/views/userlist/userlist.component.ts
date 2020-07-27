@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AdminService} from "../../services/admin.service";
 import {User} from "../../interface/user";
 import {Observable} from "rxjs";
+import {exitCodeFromResult} from "@angular/compiler-cli";
 
 @Component({
   selector: 'app-userlist',
@@ -11,32 +12,43 @@ export class UserlistComponent implements OnInit {
 
   constructor(private adminService: AdminService) { }
 
-  private userList: Observable<User[]>;
+  userList: Observable<User[]>;
 
-  ngOnInit(): void {
-    this.adminService.getAll().subscribe(
+  ngOnInit() {
+   /* this.adminService.getAll().subscribe(
       result => {
         console.log("userlist ts run");
         this.userList = result;
       }, error => {
         alert("Cannot get user list!");
       }
-    )
-
+    )*/
+    this.reloadData();
   }
 
-  // onSubmitGetAll() {
-  //   this.adminService.getAll().subscribe(
-  //     (result) => {
-  //       console.log("ala");
-  //       this.userList = result;
-  //     }, error => {
-  //       alert("Cannot get user list!");
-  //     }
-  //   )
-  // }
+  onSubmitDelete(userId: number): void {
+    this.adminService.deleteUser(userId).subscribe(
+    result => {
+      /*console.log(result);*/
+      this.reloadData();
+    },
+      error => console.log(error)
+    );
+  }
 
-  // ngOnInit() {
-  // }
+  onSubmitBlock(userId: number) {
+    this.adminService.blockUser(userId).subscribe(
+      result => {},
+      error => console.log(error)
+    );
+  }
 
+  reloadData(): void {
+    this.adminService.getAll().subscribe(
+      result => {
+        console.log("testing");
+        this.userList = result;
+      }
+    );
+  }
 }

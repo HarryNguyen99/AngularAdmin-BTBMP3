@@ -18,7 +18,7 @@ import {DefaultLayoutComponent} from './containers';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent,
-  UserlistComponent
+/*  UserlistComponent*/
 ];
 
 import {
@@ -38,6 +38,8 @@ import {LoginComponent} from './views/login/login.component';
 import {JwtInterceptor} from "./interceptor/jwt.interceptor";
 import {LogoutComponent} from './views/logout/logout.component';
 import {AuthServiceService} from "./services/auth-service.service";
+// @ts-ignore
+/*import {UserlistComponent} from './views/userlist/userlist.component';*/
 
 
 @NgModule({
