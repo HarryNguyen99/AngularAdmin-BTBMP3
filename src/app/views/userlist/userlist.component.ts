@@ -23,8 +23,9 @@ export class UserlistComponent implements OnInit {
     this.reloadData();
   }
 
-  onSubmitDelete(userId: number): void {
+  onSubmitDelete(userId: number, username: string): void {
     this.userId = userId;
+    this.username  = username;
   }
 
   onSubmitBlock(userId: number, username: string, status: boolean): void {

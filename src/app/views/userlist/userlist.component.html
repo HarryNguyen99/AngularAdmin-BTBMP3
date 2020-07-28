@@ -2,8 +2,11 @@
   <thead>
   <tr>
     <th scope="col">#</th>
+    <th scope="col">Full Name</th>
     <th scope="col">username</th>
     <th scope="col">Email</th>
+    <th scope="col">Birthday</th>
+    <th scope="col">Phone Number</th>
     <th scope="col" colspan="2" style="text-align: center">Action</th>
   </tr>
   </thead>
@@ -11,8 +14,11 @@
   <tbody>
   <tr  *ngFor="let user of userList, index as i">
     <th scope="row">{{ i + 1 }}</th>
+    <td>{{ user.full_name }}</td>
     <td>{{ user.username }}</td>
     <td>{{ user.email }}</td>
+    <td>{{ user.birthday }}</td>
+    <td>{{ user.phone_number }}</td>
     <td>
       <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#blockModal1" (click)="onSubmitBlock(user.id, user.username, user.status )">{{ user.status ? 'Block' : 'UnBlock' }} </button>
     </td>
@@ -35,7 +41,8 @@
         </button>
       </div>
       <div class="modal-body">
-        Are you sure you want to {{ userStatus ? 'block' : 'unblock' }} {{ username }}?
+        {{ userStatus ? 'Are you sure you want to block' : 'Unblock' }}
+        {{ username }}?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -56,7 +63,7 @@
       </div>
       <div class="modal-body">
         Delete {{ username }}? <br>
-        This action can be UNDONE!
+        This action cannnot UNDONE!
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
