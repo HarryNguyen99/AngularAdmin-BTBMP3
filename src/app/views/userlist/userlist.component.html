@@ -1,29 +1,69 @@
 <table class="table table-hover table-striped table-dark rounded table-borderless">
   <thead>
-<!--  <button type="button" class="btn btn-danger" (click)="onSubmitGetAll()">Get All</button>-->
   <tr>
     <th scope="col">#</th>
     <th scope="col">username</th>
-    <th scope="col">Full name</th>
     <th scope="col">Email</th>
-    <th scope="col">Birthday</th>
-    <th scope="col">Phone Number</th>
-    <th scopadasdse="col">Action</th>
+    <th scope="col" colspan="2" style="text-align: center">Action</th>
   </tr>
   </thead>
 
   <tbody>
   <tr  *ngFor="let user of userList, index as i">
-    <th scope="row">{{ user.id }}</th>
+    <th scope="row">{{ i + 1 }}</th>
     <td>{{ user.username }}</td>
-    <td>{{ user.full_name }}</td>
     <td>{{ user.email }}</td>
-    <td>{{ user.birthday }}</td>
-    <td>{{ user.phone_number }}</td>
     <td>
-      <button type="button" class="btn btn-danger" (click)="onSubmitBlock(user.id )">{{ !blockButtonContent ? 'Block' : 'UnBlock' }} </button>
-      <button type="button" class="btn btn-danger" (click)="onSubmitDelete(user.id)">Delete</button>
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#blockModal1" (click)="onSubmitBlock(user.id, user.username, user.status )">{{ user.status ? 'Block' : 'UnBlock' }} </button>
     </td>
+    <td>
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal1" (click)="onSubmitDelete(user.id, user.username)">Delete</button>
+    </td>
+
+
   </tr>
   </tbody>
 </table>
+
+<div class="modal fade" id="blockModal1" tabindex="-1" role="dialog" aria-labelledby="blockModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="blockModalLabel">{{ userStatus ? 'Block' : 'Unblock' }} User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to {{ userStatus ? 'block' : 'unblock' }} {{ username }}?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button (click)="block(userId)"  type="button" data-dismiss="modal" class="btn btn-primary">{{ userStatus ? 'Block' : 'Unblock' }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="deleteModal1" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel1" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel1">Delete User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Delete {{ username }}? <br>
+        This action can be UNDONE!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button (click)="delele(userId)"  type="button" data-dismiss="modal" class="btn btn-primary">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
