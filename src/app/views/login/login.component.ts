@@ -37,8 +37,7 @@ export class LoginComponent implements OnInit {
         console.log("admin ok")
         this.router.navigateByUrl('/dashboard');
       }, error =>
-        // this.message = 'Wrong username or password!'
-      alert("User does not have access to Admin Page")
+      alert("You do not have access to this Page")
     );
   }
 }
