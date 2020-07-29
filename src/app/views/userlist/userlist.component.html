@@ -1,6 +1,15 @@
+<h1>Biểu Đồ Minh Họa Trực Quan Lượng Người Đăng Kí Mới</h1>
+
+<highcharts-chart
+  [Highcharts] = "highcharts"
+  [options] = "chartOptions"
+  style = "width: 100%; height: 400px; display: block;">
+</highcharts-chart>
+<button (click)="enableChart()">Xem Biểu Đồ</button>
+
 <table class="table table-hover table-striped table-dark rounded table-borderless">
   <thead>
-<!--  <button type="button" class="btn btn-danger" (click)="onSubmitGetAll()">Get All</button>-->
+  <!--  <button type="button" class="btn btn-danger" (click)="onSubmitGetAll()">Get All</button>-->
   <tr>
     <th scope="col">#</th>
     <th scope="col">username</th>
@@ -27,3 +36,5 @@
   </tr>
   </tbody>
 </table>
+
+
