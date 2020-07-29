@@ -40,6 +40,11 @@
     "@angular/platform-browser-dynamic": "^9.1.12",
     "@angular/router": "^9.1.12",
     "@coreui/angular": "^2.9.4",
+    "angular-highcharts": "^9.0.11",
+    "highcharts": "^8.1.2",
+    "highcharts-angular": "^2.7.0",
+    "jquery": "^3.5.1",
+    "ng2-google-charts": "^6.1.0",
     "rxjs": "^6.6.0",
     "tslib": "^1.13.0",
     "zone.js": "^0.10.3"

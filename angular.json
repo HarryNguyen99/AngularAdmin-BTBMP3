@@ -26,7 +26,9 @@
               "node_modules/simple-line-icons/css/simple-line-icons.css",
               "src/scss/style.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js"
+            ]
           },
           "configurations": {
             "production": {

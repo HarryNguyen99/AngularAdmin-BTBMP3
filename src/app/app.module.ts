@@ -39,7 +39,7 @@ import {JwtInterceptor} from "./interceptor/jwt.interceptor";
 import {LogoutComponent} from './views/logout/logout.component';
 import {AuthServiceService} from "./services/auth-service.service";
 import {Ng2GoogleChartsModule} from "ng2-google-charts";
-import {HighchartsChartComponent, HighchartsChartModule} from "highcharts-angular";
+import {HighchartsChartComponent} from "highcharts-angular";
 import { StatisticComponent } from './statistic/statistic.component';
 // @ts-ignore
 /*import {UserlistComponent} from './views/userlist/userlist.component';*/
