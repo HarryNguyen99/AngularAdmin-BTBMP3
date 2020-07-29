@@ -13,6 +13,8 @@ export class AdminService {
   private adminUrl = 'http://localhost:8080/api/admin/crud-user/users';
   private loginUrl = 'http://localhost:8080/api/auth/admin/signin';
 
+  private statisticURL = 'http://localhost:8080/api/admin/statistic/users-date';
+
   constructor(private httpClient: HttpClient) {
   }
 
@@ -31,5 +33,9 @@ export class AdminService {
 
   blockUser(userId: number): Observable<any> {
     return this.httpClient.put( `${this.adminUrl}/${userId}`, userId);
+  }
+
+  getInformationStatistic(): Observable<any> {
+    return this.httpClient.get(`http://localhost:8080/api/admin/statistic/users-date`);
   }
 }

@@ -1,18 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {AdminService} from "../services/admin.service";
 import {Router} from "@angular/router";
-import {AdminService} from "../../services/admin.service";
-import {Statistic} from "../userlist/Statistic";
+import {Statistic} from "../views/userlist/Statistic";
 import * as Highcharts from "highcharts";
 
 @Component({
-  templateUrl: 'dashboard.component.html'
+  selector: 'app-statistic',
+  templateUrl: './statistic.component.html',
+  styleUrls: ['./statistic.component.css']
 })
-export class DashboardComponent {
-  logOut() {
-    window.localStorage.clear();
-    console.log("logout ok");
-    this.router.navigateByUrl('/login');
-  }
+export class StatisticComponent implements OnInit {
 
   title = 'myHighchart';
 
@@ -49,7 +46,7 @@ export class DashboardComponent {
   highcharts = null;
   chartOptions = {};
 
-  check() {
+  enableChart() {
     console.log(this.data);
 
     this.highcharts = Highcharts;
@@ -71,5 +68,6 @@ export class DashboardComponent {
       series: this.data
     };
   }
+
 
 }

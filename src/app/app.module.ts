@@ -38,6 +38,9 @@ import {LoginComponent} from './views/login/login.component';
 import {JwtInterceptor} from "./interceptor/jwt.interceptor";
 import {LogoutComponent} from './views/logout/logout.component';
 import {AuthServiceService} from "./services/auth-service.service";
+import {Ng2GoogleChartsModule} from "ng2-google-charts";
+import {HighchartsChartComponent} from "highcharts-angular";
+import { StatisticComponent } from './statistic/statistic.component';
 // @ts-ignore
 /*import {UserlistComponent} from './views/userlist/userlist.component';*/
 
@@ -55,7 +58,8 @@ import {AuthServiceService} from "./services/auth-service.service";
     PerfectScrollbarModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    Ng2GoogleChartsModule,
   ],
   declarations: [
     AppComponent,
@@ -63,6 +67,8 @@ import {AuthServiceService} from "./services/auth-service.service";
     UserlistComponent,
     LoginComponent,
     LogoutComponent,
+    HighchartsChartComponent,
+    StatisticComponent,
   ],
   providers: [
     {
