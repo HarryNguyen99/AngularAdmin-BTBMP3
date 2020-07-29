@@ -23,7 +23,7 @@ export class AdminService {
   }
 
   getAll(): Observable<any> {
-    console.log("alala");
+    console.log("admin service run");
     return this.httpClient.get(`http://localhost:8080/api/admin/crud-user/users`);
   }
 

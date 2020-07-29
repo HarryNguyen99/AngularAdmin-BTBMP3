@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AdminService} from "../../services/admin.service";
 import {User} from "../../interface/user";
 import {Observable} from "rxjs";
@@ -13,32 +13,30 @@ export class UserlistComponent implements OnInit {
   constructor(private adminService: AdminService) { }
 
   userList: Observable<User[]>;
+  isBlock: boolean = false;
+  userId: number;
+  username: string;
+  userStatus: boolean;
 
   ngOnInit() {
     this.getInformationServer();
     this.reloadData();
   }
 
-  onSubmitDelete(userId: number): void {
-    this.adminService.deleteUser(userId).subscribe(
-    result => {
-      this.reloadData();
-    },
-      error => console.log(error)
-    );
+  onSubmitDelete(userId: number, username: string): void {
+    this.userId = userId;
+    this.username  = username;
   }
 
-  onSubmitBlock(userId: number) {
-    this.adminService.blockUser(userId).subscribe(
-      result => {},
-      error => console.log(error)
-    );
+  onSubmitBlock(userId: number, username: string, status: boolean): void {
+    this.userId = userId;
+    this.username = username;
+    this.userStatus = status;
   }
 
   reloadData(): void {
     this.adminService.getAll().subscribe(
       result => {
-        console.log("testing");
         this.userList = result;
       }
     );
@@ -81,16 +79,35 @@ export class UserlistComponent implements OnInit {
       title: {
         text: "Biểu Đồ Theo Dõi Số Lượng Người Đăng Kí Mới Theo Ngày"
       },
-      xAxis:{
-        categories:["Đơn Vị Theo Ngày"]
+      xAxis: {
+        categories: ["Đơn Vị Theo Ngày"]
       },
       yAxis: {
-        title:{
-          text:"Số Lượng Người"
+        title: {
+          text: "Số Lượng Người"
         }
       },
       series: this.data
     };
+  }
+
+  block(userId: number) {
+    this.adminService.blockUser(userId).subscribe(
+      result => {
+        this.isBlock = true;
+        this.reloadData();
+      },
+      error => console.log(error)
+    );
+  }
+
+  delele(userId: number) {
+    this.adminService.deleteUser(userId).subscribe(
+      result => {
+        this.reloadData();
+      },
+      error => console.log(error)
+    );
   }
 }
 
