@@ -38,4 +38,12 @@ export class AdminService {
   getInformationStatistic(): Observable<any> {
     return this.httpClient.get(`http://localhost:8080/api/admin/statistic/users-date`);
   }
+
+  getInformationStatisticByMonth(): Observable<any> {
+    return this.httpClient.get(`http://localhost:8080/api/admin/statistic/users-month`);
+  }
+
+  getUser(id: number): Observable<any> {
+    return this.httpClient.get(`${this.adminUrl}/${id}`);
+  }
 }
