@@ -18,7 +18,6 @@ import {DefaultLayoutComponent} from './containers';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent,
-/*  UserlistComponent*/
 ];
 
 import {
@@ -41,9 +40,8 @@ import {AuthServiceService} from "./services/auth-service.service";
 import {Ng2GoogleChartsModule} from "ng2-google-charts";
 import {HighchartsChartComponent} from "highcharts-angular";
 import { StatisticComponent } from './statistic/statistic.component';
-// @ts-ignore
-/*import {UserlistComponent} from './views/userlist/userlist.component';*/
-
+import { UserDetailsComponent } from './views/user-details/user-details.component';
+import { StatisticMonthComponent } from './statistic-month/statistic-month.component';
 
 @NgModule({
   imports: [
@@ -69,6 +67,8 @@ import { StatisticComponent } from './statistic/statistic.component';
     LogoutComponent,
     HighchartsChartComponent,
     StatisticComponent,
+    UserDetailsComponent,
+    StatisticMonthComponent
   ],
   providers: [
     {
