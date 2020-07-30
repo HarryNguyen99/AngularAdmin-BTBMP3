@@ -8,8 +8,7 @@ import {TokenageService} from "./services/tokenage.service";
 })
 export class AppComponent implements OnInit {
   title = 'CoreUI 2 for Angular 8';
-  constructor(private router: Router,
-              private tokenStorageService: TokenageService) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.router.events.subscribe((evt) => {
