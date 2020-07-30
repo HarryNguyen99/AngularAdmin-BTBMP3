@@ -19,7 +19,6 @@ export class StatisticComponent implements OnInit {
 
   ngOnInit() {
     this.getInformationServer();
-    /*this.reloadData();*/
   }
 
   data: Statistic[] = [];
@@ -68,6 +67,5 @@ export class StatisticComponent implements OnInit {
       series: this.data
     };
   }
-
 
 }
