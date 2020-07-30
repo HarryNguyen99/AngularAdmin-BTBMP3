@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {AdminService} from "../services/admin.service";
-import {Router} from "@angular/router";
 import {Statistic} from "../views/userlist/Statistic";
 import * as Highcharts from "highcharts";
 
@@ -13,9 +12,7 @@ export class StatisticComponent implements OnInit {
 
   title = 'myHighchart';
 
-  constructor(private adminService: AdminService, private router: Router) { }
-
-  /* userList: Observable<User[]>;*/
+  constructor(private adminService: AdminService) { }
 
   ngOnInit() {
     this.getInformationServer();

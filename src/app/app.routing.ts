@@ -1,9 +1,8 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 
 // Import Containers
-import { DefaultLayoutComponent } from './containers';
-// @ts-ignore
+import {DefaultLayoutComponent} from './containers';
 import {UserlistComponent} from "./views/userlist/userlist.component";
 import {LoginComponent} from "./views/login/login.component";
 import {AuthServiceService} from "./services/auth-service.service";
@@ -55,13 +54,15 @@ export const routes: Routes = [
     path: 'login',
     component: LoginComponent
   },
-  { path: '**',
+  {
+    path: '**',
     redirectTo: 'login'
   }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}
