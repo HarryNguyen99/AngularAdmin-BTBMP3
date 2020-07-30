@@ -5,17 +5,15 @@ import {Statistic} from "../views/userlist/Statistic";
 import * as Highcharts from "highcharts";
 
 @Component({
-  selector: 'app-statistic',
-  templateUrl: './statistic.component.html',
-  styleUrls: ['./statistic.component.css']
+  selector: 'app-statistic-month',
+  templateUrl: './statistic-month.component.html',
+  styleUrls: ['./statistic-month.component.css']
 })
-export class StatisticComponent implements OnInit {
+export class StatisticMonthComponent implements OnInit {
 
   title = 'myHighchart';
 
   constructor(private adminService: AdminService, private router: Router) { }
-
-  /* userList: Observable<User[]>;*/
 
   ngOnInit() {
     this.getInformationServer();
@@ -24,13 +22,13 @@ export class StatisticComponent implements OnInit {
   data: Statistic[] = [];
 
   getInformationServer(): any {
-    this.adminService.getInformationStatistic().subscribe(
+    this.adminService.getInformationStatisticByMonth().subscribe(
       result => {
         for (let i = 0; i < result.length; i++) {
           for (let j = 0; j < result[i].length; j++) {
             if (j == 0) {
               this.data[i] = new Statistic();
-              let formatDateStr = result[i][0].substr(0, 10);
+              let formatDateStr = result[i][0].substr(0, 7);
               this.data[i].setName(formatDateStr);
             } else {
               this.data[i].data = [];
@@ -54,10 +52,10 @@ export class StatisticComponent implements OnInit {
         type: "column"
       },
       title: {
-        text: "Biểu Đồ Theo Dõi Số Lượng Người Đăng Kí Mới Theo Ngày"
+        text: "Biểu Đồ Theo Dõi Số Lượng Người Đăng Kí Mới Theo Tháng"
       },
       xAxis:{
-        categories:["Đơn Vị Theo Ngày"]
+        categories:["Đơn Vị Theo Tháng"]
       },
       yAxis: {
         title:{
@@ -67,5 +65,6 @@ export class StatisticComponent implements OnInit {
       series: this.data
     };
   }
+
 
 }

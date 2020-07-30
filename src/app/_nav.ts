@@ -13,16 +13,20 @@ export const navItems: INavData[] = [
   {
     name: 'User Manager',
     url: '/user-list',
-    icon: 'icon-speedometer',
+    icon: 'icon-star',
     badge: {
       variant: 'info',
       text: 'NEW'
     }
   },
   {
-    name: 'Disabled',
-    url: '/dashboard',
-    icon: 'icon-ban',
-    attributes: { disabled: true },
+    name: 'Chart By Date',
+    url: '/chart-date',
+    icon: 'icon-chart'
+  },
+  {
+    name: 'Chart By Month',
+    url: '/chart-month',
+    icon: 'icon-chart'
   }
 ];

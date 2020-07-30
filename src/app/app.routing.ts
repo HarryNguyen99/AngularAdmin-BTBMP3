@@ -7,6 +7,9 @@ import { DefaultLayoutComponent } from './containers';
 import {UserlistComponent} from "./views/userlist/userlist.component";
 import {LoginComponent} from "./views/login/login.component";
 import {AuthServiceService} from "./services/auth-service.service";
+import {UserDetailsComponent} from "./views/user-details/user-details.component";
+import {StatisticComponent} from "./statistic/statistic.component";
+import {StatisticMonthComponent} from "./statistic-month/statistic-month.component";
 
 export const routes: Routes = [
   {
@@ -24,13 +27,27 @@ export const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        /*loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule)*/
         loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule)
       },
       {
         path: 'user-list',
         canActivate: [AuthServiceService],
         component: UserlistComponent
+      },
+      {
+        path: 'user/:id',
+        canActivate: [AuthServiceService],
+        component: UserDetailsComponent
+      },
+      {
+        path: 'chart-date',
+        canActivate: [AuthServiceService],
+        component: StatisticComponent
+      },
+      {
+        path: 'chart-month',
+        canActivate: [AuthServiceService],
+        component: StatisticMonthComponent
       }
     ]
   },
