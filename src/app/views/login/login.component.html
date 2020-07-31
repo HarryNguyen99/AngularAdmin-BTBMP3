@@ -9,23 +9,23 @@
                 <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()">
                   <h1>Login</h1>
                   <p class="text-muted">Sign In to your account</p>
+                  <small style="color:red; font-style: italic" *ngIf="loginForm.get('username').invalid && loginForm.get('username').touched">Username is required</small>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="icon-user"></i></span>
                     </div>
                     <input type="text" class="form-control" placeholder="Username" id="username" formControlName="username" required>
-                    <small style="color:red; font-style: italic" *ngIf="loginForm.get('username').invalid && loginForm.get('username').touched">Username is required</small>
                   </div>
+                  <small style="color:red; font-style: italic" *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">Password is required</small>
                   <div class="input-group mb-4">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="icon-lock"></i></span>
                     </div>
                     <input type="password" class="form-control" placeholder="Password" id="password" formControlName="password" required>
-                    <small style="color:red; font-style: italic" *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">Password is required</small>
                   </div>
                   <div class="row">
                     <div class="col-6">
-                      <button type="submit" class="btn btn-primary px-4">Login</button>
+                      <button type="submit" class="btn btn-primary px-4" >Login</button>
                     </div>
                     <div class="col-6 text-right">
                       <button type="button" class="btn btn-link px-0">Forgot password?</button>
@@ -39,4 +39,23 @@
       </div>
     </div>
   </main>
+</div>
+
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Warning</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        You do not have access to this Page!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>

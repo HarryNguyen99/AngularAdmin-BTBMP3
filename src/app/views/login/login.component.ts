@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AdminService} from "../../services/admin.service";
 import {Router} from "@angular/router";
 import {UserLogin} from "../../interface/userLogin";
-
+declare var $: any;
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html'
@@ -33,11 +33,11 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', result.token);
         localStorage.removeItem('user');
         localStorage.setItem('user', JSON.stringify(result));
-        // alert("Admin Login Successfully");
-        console.log("admin ok")
         this.router.navigateByUrl('/dashboard');
-      }, error =>
-      alert("You do not have access to this Page")
+      }, error => {
+        $('#loginModal').modal('show');
+      }
     );
   }
+
 }

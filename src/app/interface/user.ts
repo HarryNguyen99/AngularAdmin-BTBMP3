@@ -8,5 +8,5 @@ export interface User {
   status: boolean;
   password: string;
   createDate: Date;
-  roles: null;
+  roles: any;
 }
