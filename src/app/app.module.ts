@@ -5,6 +5,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {PerfectScrollbarModule} from 'ngx-perfect-scrollbar';
 import {PerfectScrollbarConfigInterface} from 'ngx-perfect-scrollbar';
+import {NgxPaginationModule} from "ngx-pagination";
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -57,6 +58,7 @@ import { StatisticMonthComponent } from './statistic-month/statistic-month.compo
     ReactiveFormsModule,
     FormsModule,
     Ng2GoogleChartsModule,
+    NgxPaginationModule
   ],
   declarations: [
     AppComponent,
