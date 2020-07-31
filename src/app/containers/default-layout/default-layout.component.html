@@ -6,7 +6,9 @@
   [sidebarToggler]="'lg'"
   [asideMenuToggler]="'lg'">
   <div class="ml-auto">
+    <button type="button" class="btn btn-lg btn-danger" (click)="logOut()">Logout</button>
   </div>
+
 </app-header>
 <div class="app-body">
   <app-sidebar [fixed]="true" [display]="'lg'" [minimized]="minimized" #sidebar (minimizedChange)="toggleMinimize($event)">

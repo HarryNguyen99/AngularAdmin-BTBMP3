@@ -1,28 +1,31 @@
-<div class="bg-dark text-capitalize">
-  <h5>Chi Tiết User</h5>
-  <div>
-    <label><b>Id:</b> </label>{{ user.id }}
-  </div>
-  <div>
-    <label><b>Username:</b> </label>{{ user.username }}
-  </div>
-  <div>
-    <label><b>Fullname:</b> </label>{{ user.full_name }}
-  </div>
-  <div>
-    <label><b>Email:</b> </label>{{ user.email }}
-  </div>
-  <div>
-    <label><b>PhoneNumber:</b> </label>{{ user.phone_number }}
-  </div>
-  <div>
-    <label><b>Status:</b> </label>{{ user.status }}
-  </div>
-  <div>
-    <label><b>CreatedDate:</b> </label>{{ user.createDate }}
-  </div>
-  <div>
-    <label><b>Role:</b> </label>{{ user.roles[0].name }}
-  </div>
-</div>
+
+<table class=" col-sm-9 table table-hover table-striped table-dark rounded table-borderless">
+  <tr >
+    <th class="text-center" scope="col" colspan="2"><h3>User Detail</h3></th>
+  </tr>
+  <tr>
+    <th scope="col"><h5>ID No.</h5></th>
+    <td scope="col">{{ user.id }}</td>
+  </tr>
+  <tr>
+    <th scope="col"><h5>username</h5></th>
+    <td scope="col">{{ user.username }}</td>
+  </tr>
+  <tr>
+    <th><h5>Fullname</h5></th>
+    <td>{{ user.full_name }}</td>
+  </tr>
+  <tr>
+    <th><h5>Phone Number</h5></th>
+    <td>{{ user.phone_number }}</td>
+  </tr>
+  <tr>
+    <th><h5>Create Date</h5></th>
+    <td>{{ user.createDate }}</td>
+  </tr>
+  <tr>
+    <th><h5>Role</h5></th>
+    <td>{{ (user.roles[0].name == 'ROLE_USER')? 'USER' : 'ADMIN' }}</td>
+  </tr>
+</table>
 

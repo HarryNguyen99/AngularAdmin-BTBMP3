@@ -14,23 +14,20 @@ export class UserlistComponent implements OnInit {
 
   userList: Observable<User[]>;
   isBlock: boolean = false;
-  userId: number;
+  id: number;
   username: string;
-  userStatus: boolean;
+  status: boolean;
+  rolesName: string;
 
   ngOnInit() {
     this.reloadData();
   }
 
-  onSubmitDelete(userId: number, username: string): void {
-    this.userId = userId;
-    this.username  = username;
-  }
-
-  onSubmitBlock(userId: number, username: string, status: boolean): void {
-    this.userId = userId;
+  onSubmitButton(id: number, username: string, status: boolean, rolesName: string): void {
+    this.id= id;
     this.username = username;
-    this.userStatus = status;
+    this.status = status;
+    this.rolesName = rolesName;
   }
 
   reloadData(): void {
