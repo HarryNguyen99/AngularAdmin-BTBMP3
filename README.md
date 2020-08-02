@@ -1,4 +1,5 @@
-# [@coreui/angular](https://coreui.io/angular)
+# BTBMP3 Admin based on [@coreui/angular](https://coreui.io/angular)
+
 
 [![npm package][npm-coreui-angular-badge-latest]][npm-coreui-angular] 
 [![NPM downloads][npm-coreui-angular-download]][npm-coreui-angular]
